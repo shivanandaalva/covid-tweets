@@ -54,8 +54,6 @@ var sdata=data.statuses;
   //  console.log(data.statuses[1].entities); 
 res.render('twitter',{sdata:sdata});
 })
-
-
 })
 
 
