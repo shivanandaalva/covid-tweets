@@ -15,12 +15,9 @@ app.use(function(req, res, next) {
   next();   
 });
 var Twit = require('twit');
-
-
 app.get('/', (req, res) => {
       res.render('index');
 })
-
 app.use('/search', (req, res) => {
     // var city=req.body.city;
     // var res=req.body.res;
@@ -35,7 +32,6 @@ app.use('/search', (req, res) => {
       
     //   res.render('twitter',{data:data});
     // })
-
 var T = new Twit({
   consumer_key:         'HtEDKh2BlBOlywTH64UsY3XxG',
   consumer_secret:      '5q6HdyJnqtusvbMBfdsENVVhBRvrnY2mwm1Rm0sZax9VQFuEPe',
@@ -44,7 +40,6 @@ var T = new Twit({
   timeout_ms:           60*1000,  // optional HTTP request timeout to apply to all requests.
   strictSSL:            true,     // optional - requires SSL certificates to be valid.
 })
-
 T.get('search/tweets', { q:"verified"+" "+req.body.city+" "+req.body.res, count: 100,tweet_mode:'extended'}, function(err, data, resopnse) {
   console.log(data.statuses);
 var sdata=data.statuses;
@@ -55,8 +50,6 @@ var sdata=data.statuses;
 res.render('twitter',{sdata:sdata});
 })
 })
-
-
 app.listen(port, () => {
     console.log(`Example app listening at http://localhost:${port}`)
   })
