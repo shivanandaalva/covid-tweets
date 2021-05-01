@@ -19,19 +19,7 @@ app.get('/', (req, res) => {
       res.render('index');
 })
 app.use('/search', (req, res) => {
-    // var city=req.body.city;
-    // var res=req.body.res;
 
-    // axios.get('https://twitter.com/search?q=verified%20'+req.body.city+'%20&f=live').then((response) => {
-    //   // Load the web page source code into a cheerio instance
-    //   const $ = cheerio.load(response.data)
-    //   console.log(response.data);
-    //   var data=$().each((i,e)=>{
-    //       $
-    //   })
-      
-    //   res.render('twitter',{data:data});
-    // })
 var T = new Twit({
   consumer_key:         'HtEDKh2BlBOlywTH64UsY3XxG',
   consumer_secret:      '5q6HdyJnqtusvbMBfdsENVVhBRvrnY2mwm1Rm0sZax9VQFuEPe',
@@ -41,12 +29,7 @@ var T = new Twit({
   strictSSL:            true,     // optional - requires SSL certificates to be valid.
 })
 T.get('search/tweets', { q:"verified"+" "+req.body.city+" "+req.body.res, count: 100,tweet_mode:'extended'}, function(err, data, resopnse) {
-  console.log(data.statuses);
 var sdata=data.statuses;
-  // console.log(data.statuses[1].id_str);
-  console.log(data.statuses[1].user); 
-  // console.log(data.statuses[1].full_text); 
-  //  console.log(data.statuses[1].entities); 
 res.render('twitter',{sdata:sdata});
 })
 })
