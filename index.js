@@ -21,10 +21,10 @@ app.get('/', (req, res) => {
 app.use('/search', (req, res) => {
 
 var T = new Twit({
-  consumer_key:         'HtEDKh2BlBOlywTH64UsY3XxG',
-  consumer_secret:      '5q6HdyJnqtusvbMBfdsENVVhBRvrnY2mwm1Rm0sZax9VQFuEPe',
-  access_token:         '768512896384983040-AtOZCdSH07020RVHBmrVQyQOXIlhAi3',
-  access_token_secret:  'JQ0WjwKV6Ed8i4EWj1ggTdfJ5KI3VhX0DjoZOPwOSLgZ8',
+  consumer_key:         '',
+  consumer_secret:      '',
+  access_token:         '',
+  access_token_secret:  '',
   timeout_ms:           60*1000,  // optional HTTP request timeout to apply to all requests.
   strictSSL:            true,     // optional - requires SSL certificates to be valid.
 })
